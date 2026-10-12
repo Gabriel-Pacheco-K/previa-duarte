@@ -128,7 +128,7 @@ h3 { font-size: 1.45rem; font-weight: 700; }
   color: var(--white);
   background:
     linear-gradient(100deg, rgba(11, 18, 80, 0.94) 0%, rgba(11, 18, 80, 0.78) 45%, rgba(11, 18, 80, 0.25) 100%),
-    url('../img/fachada.jpg') center 40% / cover no-repeat,
+    url('../img/fachada.jpg') center 55% / cover no-repeat,
     var(--navy-900);
 }
 .hero-inner { padding: 6rem 20px 4.5rem; }
@@ -219,8 +219,10 @@ h3 { font-size: 1.45rem; font-weight: 700; }
 }
 .car-body { display: flex; flex-direction: column; flex: 1; padding: 1.1rem 1.2rem 1.25rem; }
 .car-brand { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
-.specs { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; margin: 0.6rem 0 1rem; color: var(--muted); font-size: 0.95rem; }
+.specs { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; margin: 0.6rem 0 0.6rem; color: var(--muted); font-size: 0.95rem; }
 .specs li { display: flex; align-items: center; gap: 0.35rem; }
+.car-price { font-family: var(--display); font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 0.9rem; }
+.car-price-ask { font-family: var(--body); font-size: 1rem; color: var(--muted); }
 .car-actions { display: flex; flex-direction: column; gap: 0.35rem; margin-top: auto; }
 .car-actions .btn { width: 100%; }
 .link-btn { align-self: center; border: 0; background: none; padding: 0.4rem 0.6rem; font-weight: 700; color: var(--navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }

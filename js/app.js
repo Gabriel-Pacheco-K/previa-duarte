@@ -10,6 +10,8 @@
 
   const estoque = Array.isArray(window.ESTOQUE) ? window.ESTOQUE : [];
   const kmFormat = new Intl.NumberFormat('pt-BR');
+  const precoFormat = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  const textoPreco = (c) => (Number.isFinite(c.preco) ? precoFormat.format(c.preco) : 'Consulte o preço');
 
   const nomeCompleto = (c) => `${c.marca} ${c.modelo} ${c.versao} ${c.ano}`;
   const textoKm = (c) => (Number.isFinite(c.km) ? `${kmFormat.format(c.km)} km` : 'km sob consulta');
@@ -96,7 +98,7 @@
 
     const specs = el('ul', 'specs');
     specs.append(spec('i-calendar', String(c.ano)), spec('i-gauge', textoKm(c)));
-    corpo.append(specs);
+    corpo.append(specs, el('p', Number.isFinite(c.preco) ? 'car-price' : 'car-price car-price-ask', textoPreco(c)));
 
     const acoes = el('div', 'car-actions');
     const detalhes = el('button', 'link-btn', 'Ver detalhes');
@@ -153,6 +155,7 @@
   const dlgTitulo = document.getElementById('dlg-titulo');
   const dlgSpecs = document.getElementById('dlg-specs');
   const dlgWhats = document.getElementById('dlg-whats');
+  const dlgPreco = document.getElementById('dlg-preco');
 
   function abrirDetalhes(c) {
     dlgFoto.src = c.foto;
@@ -165,6 +168,7 @@
       spec('i-shield', c.cambio ? `Câmbio ${c.cambio.toLowerCase()}` : 'Câmbio sob consulta'),
       spec('i-doc', c.categoria),
     );
+    dlgPreco.textContent = Number.isFinite(c.preco) ? `${textoPreco(c)} · consulte as condições de pagamento` : 'Consulte o preço e as condições de pagamento';
     dlgWhats.href = whatsLink(mensagemInteresse(c));
     dialog.showModal();
   }
